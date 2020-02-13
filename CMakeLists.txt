@@ -9,6 +9,7 @@ add_subdirectory(libs)
 
 # note: this adds a BUILD_TESTING which defaults to ON
 include(CTest)
+include(${CMAKE_SOURCE_DIR}/cmake/CodeCoverage.cmake)
 
 # if build testing is on, add tests subdir (where CMakeLists.txt is)
 if (BUILD_TESTING)

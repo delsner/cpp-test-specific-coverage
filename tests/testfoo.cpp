@@ -21,6 +21,7 @@ void FooTest::SetUp() {};
 
 void FooTest::TearDown() {};
 
+// tests with fixtures
 TEST_F(FooTest, ByDefaultBazTrueIsTrue) {
     Foo foo(m_bar);
     EXPECT_EQ(foo.baz(true), true);
@@ -36,4 +37,9 @@ TEST_F(FooTest, SometimesBazFalseIsTrue) {
     // Have norf return true for once
     EXPECT_CALL(m_bar, norf()).WillOnce(Return(true));
     EXPECT_EQ(foo.baz(false), true);
+}
+
+// simple test
+TEST(FooTestSuite, AlwaysTrue) {
+    ASSERT_EQ(true, true);
 }

@@ -33,18 +33,25 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif ()
 
 # define source files
-set(test_SRCS main.cpp mockbar.h testfoo.cpp testfoo.h)
+set(test_SRCS main.cpp mockbar.h testfoo.cpp testfoo.h listener.h)
 
 # create binary for test execution
-add_executable(cppcoverage-unittest ${test_SRCS})
+add_executable(unittests ${test_SRCS})
 
 # link gtest as static library
-target_link_libraries(cppcoverage-unittest
+target_link_libraries(unittests
         gtest_main
         gmock_main
         libfoo
         )
 
-# add test
-add_test(NAME testfoo
-        COMMAND testfoo)
+# Coverage setup
+append_coverage_compiler_flags()
+set(COVERAGE_EXCLUDES
+        '*/googletest*' # important: single quotes for relative
+        "/*/usr/include/*" # important: double quotes for absolute
+        )
+
+setup_target_for_coverage_lcov(NAME coverage
+        EXECUTABLE unittests
+        DEPENDENCIES unittests)
