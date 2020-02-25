@@ -9,7 +9,6 @@ int main(int argc, char **argv) {
             ::testing::UnitTest::GetInstance()->listeners();
     // Adds a listener to the end.
     // googletest takes the ownership.
-    listeners.Append(new CoverageEventListener("/Users/delsner/Downloads/runs",
-                                               "/Users/delsner/workspace/00_TUM/cppcoverage/cmake-build-debug/tests/CMakeFiles/unittests.dir"));
+    listeners.Append(new CoverageEventListener());
     return RUN_ALL_TESTS();
 }

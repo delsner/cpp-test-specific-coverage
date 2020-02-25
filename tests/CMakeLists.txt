@@ -32,13 +32,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif ()
 
-# Boost filesystem dynamic lib
-set(Boost_USE_STATIC_LIBS OFF)
-set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.50 REQUIRED COMPONENTS filesystem)
-message(STATUS "Boost version: ${Boost_VERSION}")
-
 # define source files
 set(test_SRCS main.cpp mockbar.h testfoo.cpp testfoo.h cov_listener.h cov_listener.cpp)
 
@@ -50,16 +43,4 @@ target_link_libraries(unittests
         gtest_main
         gmock_main
         libfoo
-        Boost::filesystem
         )
-
-# Coverage setup
-append_coverage_compiler_flags()
-set(COVERAGE_EXCLUDES
-        '*/googletest*' # important: single quotes for relative
-        "/*/usr/include/*" # important: double quotes for absolute
-        )
-
-setup_target_for_coverage_lcov(NAME coverage
-        EXECUTABLE unittests
-        DEPENDENCIES unittests)
