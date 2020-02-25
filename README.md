@@ -15,7 +15,7 @@ It is modified for test-specific coverage in [this fork](https://github.com/dels
 
 ## Setup
 
-1. Download binary of [fork from OpenCppCoverage](https://github.com/delsner/OpenCppCoverage) and add to `$PATH`
+1. Download `opencppcoverage.exe` binary of [fork from OpenCppCoverage](https://github.com/delsner/OpenCppCoverage) (and add to `$PATH` if desired)
 2. Clone this repository and build it with `cmake` (you can use the internal version of VS)
 3. Make sure you can run `unittests.exe (tests\unittests.exe)` with x64-Debug configuration
 4. Navigate to `.\out\build\x64-Debug\tests`, make sure there is a `unittests.pdb` and `unittests.exe` file and execute OpenCppCoverage as follows:
