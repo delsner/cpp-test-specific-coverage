@@ -5,7 +5,7 @@ This repository demonstrates the use of OpenCppCoverage to gather coverage per t
 ## Google Test
 
 [Google Test](https://github.com/google/googletest) is Google's C++ test framework used to create test cases.
-The [hooks inside Google Test](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#defining-event-listeners) can be used for implementing the necessary control flow to realize coverage per test case.
+The [hooks inside Google Test](https://google.github.io/googletest/advanced.html#defining-event-listeners) can be used for implementing the necessary control flow to realize coverage per test case.
 
 ## OpenCppCoverage
 
